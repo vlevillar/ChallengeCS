@@ -13,9 +13,10 @@ const StyledInput = styled.input`
 
   &::placeholder {
     color: rgba(35, 19, 49, 0.5);
-  }
+}
 
-  &:focus {
+&:focus {
+    color: #02090eb8;
     border-bottom-color: #02090eb8;
   }
 `;

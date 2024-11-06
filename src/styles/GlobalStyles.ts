@@ -1,8 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=K2D:wght@400;500;600;700&display=swap');
-
   @font-face {
     font-family: 'SF Pro';
     src: url('/src/assets/fonts/SF-Pro-Regular.otf') format('opentype');
@@ -26,7 +24,23 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     font-family: 'SF Pro', 'K2D', sans-serif;
+    background-color: #F4F4F4
   }
+
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Para evitar cualquier desplazamiento horizontal inesperado */
+  width: 100%;
+  height: 100%;
+}
+
 `;
 
 export default GlobalStyles;

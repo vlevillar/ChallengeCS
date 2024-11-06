@@ -3,22 +3,23 @@ import styled from 'styled-components';
 
 interface DarkButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: 'sm' | 'md' | 'lg';
-  endContent?: string; // La prop endContent ahora espera una URL de imagen
+  endContent?: string; 
+  disabled?: boolean; 
 }
 
-const StyledButton = styled.button<{ size: 'sm' | 'md' | 'lg'; hasEndContent: boolean }>`
+const StyledButton = styled.button<{ size: 'sm' | 'md' | 'lg'; hasEndContent: boolean, disabled: boolean }>`
   display: flex;
   align-items: center;
   justify-content: ${({ hasEndContent }) => (hasEndContent ? 'space-around' : 'center')};
-  background-color: #231331;
+  background-color: ${({ disabled }) => (disabled ? '#757575' : '#231331')};
   font-family: 'SF Pro';
   font-weight: 400;
   color: white;
   border: none;
-  border-radius: 20px;
+  border-radius: 20px; 
   padding: 14px 20px;
   font-size: 14px;
-  cursor: pointer;
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   transition: background-color 0.3s ease;
   width: ${({ size }) => {
     switch (size) {
@@ -34,7 +35,7 @@ const StyledButton = styled.button<{ size: 'sm' | 'md' | 'lg'; hasEndContent: bo
   }};
   
   &:hover {
-    background-color: #3f3f3f;
+    background-color: ${({ disabled }) => (disabled ? '#757575' : '#3f3f3f')};
   }
 
   &:focus {
@@ -45,17 +46,17 @@ const StyledButton = styled.button<{ size: 'sm' | 'md' | 'lg'; hasEndContent: bo
 const EndContentWrapper = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 2px; /* Espacio entre el texto y la imagen */
+  margin-left: 2px;
 `;
 
 const Icon = styled.img`
-  width: 15px; /* Ajusta el tamaño de la imagen según sea necesario */
+  width: 15px;
   height: 15px;
 `;
 
-const DarkButton: React.FC<DarkButtonProps> = ({ size = 'md', endContent, children, ...rest }) => {
+const DarkButton: React.FC<DarkButtonProps> = ({ size = 'md', endContent, children, disabled = false, ...rest }) => {
   return (
-    <StyledButton size={size} {...rest} hasEndContent={!!endContent}>
+    <StyledButton size={size} {...rest} hasEndContent={!!endContent} disabled={disabled}>
       <span>{children}</span>
       {endContent && (
         <EndContentWrapper>
