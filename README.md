@@ -24,7 +24,7 @@ La estructura principal del proyecto es la siguiente:
 2. Navega a la carpeta principal del proyecto.
 
    ```bash
-   cd nombre-de-tu-proyecto
+   cd ChallengeCS
    ```
 
 3. Instala las dependencias del proyecto:
