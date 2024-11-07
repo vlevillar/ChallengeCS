@@ -19,7 +19,7 @@ const resend = new Resend(API_KEY);
 
         const { data, error } = await resend.emails.send({
             from: 'Acme <onboarding@resend.dev>',
-            to: ['valentinodelforvillar@gmail.com'],
+            to: ['anthony@customerscoops.com'],
             subject: 'Hello World',
             html: htmlContent,
         });

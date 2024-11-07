@@ -47,11 +47,9 @@ const ImageContainer = styled.div<{ isFinalScreen: boolean }>`
   }
 
   @media (max-width: 768px) {
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
+    display: block;
     width: 100%;
-    height: auto;
+    height: 100px;
     margin-left: 10px;
     order: -1;
     border-radius: 300px;
@@ -65,14 +63,14 @@ const ImageContainer = styled.div<{ isFinalScreen: boolean }>`
     .mobile-image {
       display: block;
       width: 100%;
-      height: auto;
+      height: 50%;
       object-fit: contain;
     }
 
     .mobile-logo {
       display: block;
       position: absolute;
-      top: 20vh; 
+      top: 40%; 
       left: 10vh;
       width: 20%;
       z-index: 4;

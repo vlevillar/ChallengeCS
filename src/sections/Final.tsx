@@ -1,27 +1,7 @@
 import styled from "styled-components";
 import Logo from "/logoCS.svg";
 import DarkButton from "../components/DarkButton";
-
-const TextContainer = styled.div`
-  flex: 1;
-  max-width: 600px;
-  padding: 30px;
-  margin-left: 10vh;
-  padding-right: 15vh;
-
-  @media (max-width: 768px) {
-    width: 80%;
-    padding: 50px;
-    margin: 0 auto;
-    text-align: start;
-    p {
-      font-size: 30px;
-    }
-    .logo {
-      display: none;
-    }
-  }
-`;
+import { TextContainer } from "../styles/forms/TextContainer";
 
 const Title = styled.p`
   font-size: 30px;

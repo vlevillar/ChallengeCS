@@ -1,69 +1,14 @@
-import styled from "styled-components";
 import Logo from "/logoCS.svg";
 import Arrow from '../assets/ArrowRightGreen.svg';
 import LightButton from "../components/LightButton";
 import DarkButton from "../components/DarkButton";
 import BackButton from "../components/BackButton";
 import { useUser } from "../hooks/UserContext";
-import { useState } from "react";
-
-const TextContainer = styled.div`
-flex: 1;
-max-width: 600px;
-padding: 30px;
-margin-left: 10vh;
-padding-right: 15vh;
-
-p {
-  font-size: 20px;
-  font-family: "K2D";
-  color: #231331;
-  margin-top: 20px;
-  line-height: 1.6;
-}
-
-@media (max-width: 768px) {
-  width: 80%;
-  padding: 50px;
-  margin: 0 auto;
-  text-align: start;
-  p {
-    font-size: 19px;
-    font-weight: 700;
-  }
-  .logo{
-    display: none;
-  }
-}
-`;
-
-const ButtonsContainer = styled.div`
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 5px;
-margin-top: 20px;
-
-@media (max-width: 768px) {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-@media (max-width: 480px) {
-  grid-template-columns: 1fr; 
-}
-`;
-
-const NavigationButtons = styled.div`
-display: flex;
-padding-top: 50px;
-align-items: center;
-position: relative;
-gap: 5px;
-right: 45px;
-@media (max-width: 768px) {
-  padding-left:45px;
-}
-
-`;
+import { useEffect, useState } from "react";
+import { useFormContext } from "../hooks/FormContext";
+import { TextContainer } from "../styles/forms/TextContainer";
+import { NavigationButtons } from "../styles/forms/NavigationButtons";
+import { ButtonsContainer } from "../styles/forms/ButtonsContainer";
 
 interface SecondFormProps {
     onBack: () => void;
@@ -72,7 +17,14 @@ interface SecondFormProps {
 
 export const SecondForm: React.FC<SecondFormProps> = ({ onBack, onNext }) => {
     const { username } = useUser();
+    const { formSelections, updateFormSelection } = useFormContext();
     const [selectedButton, setSelectedButton] = useState<string | null>(null);
+
+    useEffect(() => {
+      if (formSelections['SecondForm']) {
+        setSelectedButton(formSelections['SecondForm']);
+      }
+    }, [formSelections]);
     
     const buttonOptions = [
         { id: '1', label: 'Board member' },
@@ -87,6 +39,7 @@ export const SecondForm: React.FC<SecondFormProps> = ({ onBack, onNext }) => {
 
       const handleButtonClick = (buttonId: string) => {
         setSelectedButton(buttonId);
+        updateFormSelection('SecondForm', buttonId);
       };    
 
   return (
