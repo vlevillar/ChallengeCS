@@ -16,14 +16,15 @@ const Button = styled.button<{ size: 'sm' | 'md' | 'lg' | 'full'; hasStartConten
   font-weight: 400;
   gap: 8px;
   padding-right: 10px;
+  padding-left: ${({ hasStartContent }) => (hasStartContent ? '5px' : '10px')}; 
   padding-top: ${({ hasStartContent }) => (hasStartContent ? '5px' : '14px')};
   padding-bottom: ${({ hasStartContent }) => (hasStartContent ? '5px' : '14px')};
   border: 1px solid #000;
   border-radius: 30px;
-  background-color: ${({ selected }) => (selected ? '#000' : '#fff')}; /* Fondo negro si está seleccionado */
-  color: ${({ selected }) => (selected ? '#fff' : '#000')}; /* Texto blanco si está seleccionado */
+  background-color: ${({ selected }) => (selected ? '#000' : '#fff')}; 
+  color: ${({ selected }) => (selected ? '#fff' : '#000')};
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease; /* Transición de fondo y color */
+  transition: background-color 0.3s ease, color 0.3s ease;
   justify-content: ${({ hasStartContent }) => (hasStartContent ? 'flex-start' : 'center')};
   width: ${({ size }) => {
     switch (size) {
@@ -41,7 +42,7 @@ const Button = styled.button<{ size: 'sm' | 'md' | 'lg' | 'full'; hasStartConten
   }};
   white-space: normal;
   text-align: ${({ hasStartContent }) => (hasStartContent ? 'left' : 'center')};
-
+  max-height: 44px;
   &:hover {
     background-color: ${({ selected }) => (selected ? '#000' : '#f0f0f0')}; /* Cambia el fondo solo si no está seleccionado */
   }

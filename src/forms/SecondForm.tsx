@@ -17,16 +17,22 @@ padding-right: 15vh;
 p {
   font-size: 20px;
   font-family: "K2D";
-  color: #555;
+  color: #231331;
   margin-top: 20px;
   line-height: 1.6;
 }
 
 @media (max-width: 768px) {
-  margin-left: 0;
-  padding-right: 0;
+  width: 80%;
+  padding: 50px;
+  margin: 0 auto;
+  text-align: start;
   p {
-    font-size: 0.9rem;
+    font-size: 19px;
+    font-weight: 700;
+  }
+  .logo{
+    display: none;
   }
 }
 `;
@@ -53,6 +59,10 @@ align-items: center;
 position: relative;
 gap: 5px;
 right: 45px;
+@media (max-width: 768px) {
+  padding-left:45px;
+}
+
 `;
 
 interface SecondFormProps {
@@ -81,7 +91,7 @@ export const SecondForm: React.FC<SecondFormProps> = ({ onBack, onNext }) => {
 
   return (
     <TextContainer>
-      <img src={Logo} alt="Logo" />
+      <img src={Logo} alt="Logo" className="logo" />
       <p>
         <strong>Genial {username},</strong> ahora nos gustaría tener cierta info para diseñar una gran
         propuesta de valor para ti: ¿Cuál es tu cargo/posición dentro de tu

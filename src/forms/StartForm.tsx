@@ -15,17 +15,35 @@ const TextContainer = styled.div`
   p {
     font-size: 20px;
     font-family: "K2D";
-    color: #555;
+    color: #231331;
     margin-top: 20px;
     line-height: 1.6;
   }
 
   @media (max-width: 768px) {
-    h1 {
-      font-size: 1.5rem;
-    }
+    width: 80%;
+    padding: 50px;
+    margin: 0 auto;
+    text-align: start;
+
     p {
-      font-size: 0.9rem;
+      font-size: 19px; 
+      margin-top: 10px;
+    }
+  }
+`;
+
+const LogoContainer = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+
+  img {
+    max-width: 100%;
+    height: auto;
+
+    @media (max-width: 768px) {
+      display: none
     }
   }
 `;
@@ -33,8 +51,12 @@ const TextContainer = styled.div`
 const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
   margin-top: 20px;
+
+  @media (max-width: 768px) {
+    gap: 15px;
+  }
 `;
 
 interface StartFormProps {
@@ -47,17 +69,19 @@ export const StartForm: React.FC<StartFormProps> = ({ onNext }) => {
 
   const handleSubmit = () => {
     setUsername(name);
-    if(name !== ''){
-    onNext();
-    } 
+    if (name !== "") {
+      onNext();
+    }
   };
 
   return (
     <TextContainer>
-      <img src={Logo} alt="Logo" />
+      <LogoContainer>
+        <img src={Logo} alt="Customer Scoops Logo" />
+      </LogoContainer>
       <p>
         Muchas gracias por tu interés en conocer <strong>customerScoops</strong>, que a través de
-        Formularios Conversacionales Inteligente te ayudamos a aumentar el revenue y rentabilidad
+        Formularios Conversacionales Inteligentes te ayudamos a aumentar el revenue y rentabilidad
         de tu negocio.
       </p>
       <p>Queremos conocerte, ¿cuál es tu nombre?</p>
