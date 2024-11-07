@@ -38,6 +38,24 @@ const ProgressBar = styled(motion.div)`
   width: 0;
 `;
 
+const ResponsiveMotionDiv = styled(motion.div)`
+  width: 90vh;
+  z-index: 3;
+
+  @media (max-width: 768px) {
+    max-width: 70vh;
+  }
+
+  @media (max-width: 430px) {
+    max-width: 65vh;
+  }
+
+  @media (max-width: 375px) {
+    max-width: 90vh;
+  }
+`;
+
+
 function App() {
   const [currentForm, setCurrentForm] = useState<FormType>("start");
   const [direction, setDirection] = useState(1);
@@ -79,7 +97,7 @@ function App() {
           totalSteps={totalSteps}
         >
           <AnimatePresence mode="wait">
-            <motion.div
+            <ResponsiveMotionDiv
               key={currentForm}
               initial={{ opacity: 0, x: direction === 1 ? 100 : -100 }}
               animate={{ opacity: 1, x: 0 }}
@@ -113,7 +131,7 @@ function App() {
                 />
               )}
               {currentForm === "final" && <FinalScreen />}
-            </motion.div>
+            </ResponsiveMotionDiv>
           </AnimatePresence>
         </Intro>
       </FormProvider>

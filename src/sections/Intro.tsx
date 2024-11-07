@@ -15,6 +15,7 @@ const IntroSection = styled.section`
 
   @media (max-width: 768px) {
     flex-direction: column;
+    justify-content: start;
   }
 `;
 
@@ -47,6 +48,7 @@ const ImageContainer = styled.div<{ isFinalScreen: boolean }>`
   }
 
   @media (max-width: 768px) {
+    flex: 0;
     display: block;
     width: 100%;
     height: 100px;
@@ -93,7 +95,7 @@ const ExpandingDiv = styled(motion.div)`
 
 const ProgressFraction = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   position: absolute;
   top: 45px;
   right: 20px;
@@ -107,12 +109,13 @@ const ProgressFraction = styled.div`
   p:first-of-type {
     font-weight: 600;
     font-size: 18px;
+    margin-top: 2.5px;
   }
 
   p:last-of-type {
     font-weight: 400;
     font-size: 10px;
-    margin-top: 4.5px;
+    margin-top: 8px;
   }
 `;
 

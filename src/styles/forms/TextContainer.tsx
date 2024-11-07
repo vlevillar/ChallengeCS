@@ -25,6 +25,10 @@ export const TextContainer = styled.div`
       font-size: 19px; 
       margin-top: 10px;
     }
+
+    .logo{
+      display: none;
+    }
   }
 
   @media (max-width: 425px) {
