@@ -3,21 +3,21 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyles = createGlobalStyle`
   @font-face {
     font-family: 'SF Pro';
-    src: url('/fonts/SF-Pro-Regular.otf');
+    src: url('/fonts/SF-Pro-Regular.OTF');
     font-weight: 400;
     font-style: normal;
   }
 
   @font-face {
     font-family: 'SF Pro';
-    src: url('/fonts/SF-Pro-Medium.otf');
+    src: url('/fonts/SF-Pro-Medium.OTF');
     font-weight: 500;
     font-style: normal;
   }
 
   @font-face {
     font-family: 'SF Pro';
-    src: url('/fonts/SF-Pro-Bold.otf');
+    src: url('/fonts/SF-Pro-Bold.OTF');
     font-weight: 700;
     font-style: normal;
   }
