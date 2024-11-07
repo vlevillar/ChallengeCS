@@ -17,11 +17,32 @@ const resend = new Resend(API_KEY);
         const templatePath = path.join(__dirname, 'template', 'emailtemplate.html');
         const htmlContent = fs.readFileSync(templatePath, 'utf8');
 
+        const headerImagePath = path.join(__dirname, '../public', 'headerImage.png');
+        const footerLogoPath = path.join(__dirname, '../public', 'footerImage.png');
+        const headerImage = fs.readFileSync(headerImagePath).toString("base64");
+        const footerLogo = fs.readFileSync(footerLogoPath).toString("base64");
+
         const { data, error } = await resend.emails.send({
             from: 'Acme <onboarding@resend.dev>',
             to: ['valentinodelforvillar@gmail.com'],
             subject: 'Hello World',
             html: htmlContent,
+            attachments: [
+                {
+                    content: headerImage,
+                    filename: "headerImage.png",
+                    type: "image/png",
+                    disposition: "inline",
+                    content_id: "headerImage"
+                },
+                {
+                    content: footerLogo,
+                    filename: "footerImage.png",
+                    type: "image/png",
+                    disposition: "inline",
+                    content_id: "footerLogo"
+                }
+            ]
         });
 
         if (error) {
